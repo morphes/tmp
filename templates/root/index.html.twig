@@ -1,0 +1,18 @@
+<h1>Countries:</h1>
+{% for country in countries %}
+    <a href="{{ path('country', {'id': country.id}) }}">
+        <h2>{{ country.name }}</h2>
+    </a>
+{% endfor %}
+
+{#{{ totals }}<br/>#}
+{#{{ avgs }}<br/>#}
+{#{{ avg_per_state }}<br/>#}
+{#{{ avg_per_country }}<br/>#}
+{#{% for state in overall_statistics.states %}#}
+{#    {% for county in state.counties %}#}
+{#        {% for income in county.incomes %}#}
+{#            {{ income.amount }}#}
+{#        {% endfor %}#}
+{#    {% endfor %}#}
+{#{% endfor %}#}

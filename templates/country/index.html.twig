@@ -1,0 +1,34 @@
+<h1>Country: {{ country.name }}</h1>
+<h2>Average Country Tax Rate: {{ avg_tax_rate }}</h2>
+<h1>States:</h1>
+{% for state in states %}
+    <a href="{{ path('state', {'id': state.id }) }}">
+        <h2>{{ state.name }}</h2>
+    </a>
+{% endfor %}
+
+<div class="count">
+    Total Incomes: {{ pagination.getTotalItemCount }}
+</div>
+<table>
+    <tr>
+        <th>{{ knp_pagination_sortable(pagination, 'Id', 'a.id') }}</th>
+        <th{% if pagination.isSorted('a.amount') %} class="sorted"{% endif %}>{{ knp_pagination_sortable(pagination, 'Amount', 'a.amount') }}</th>
+        <th>County</th>
+        <th>State</th>
+        <th>Country</th>
+    </tr>
+
+    {% for income in pagination %}
+        <tr>
+            <td>{{ income.id }}</td>
+            <td>{{ income.amount | number_format(2, '.', ',') }}</td>
+            <td>{{ income.county.name }}</td>
+            <td>{{ income.county.state.name }}</td>
+            <td>{{ income.county.state.country.name }}</td>
+        </tr>
+    {% endfor %}
+</table>
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>

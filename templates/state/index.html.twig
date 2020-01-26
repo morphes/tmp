@@ -1,0 +1,10 @@
+<h1>State: {{ state.name }}</h1>
+<h2>Average State Tax Rate: {{ avg_tax_rate | number_format(2, '.', ',') }}</h2>
+<h2>Average Income: {{ avg_income | number_format(2, '.', ',') }}</h2>
+<h2>Total Income: {{ total | number_format(2, '.', ',') }}</h2>
+<h1>Counties:</h1>
+{% for county in counties %}
+    <a href="{{ path('county', {'id': county.id }) }}">
+        <h2>{{ county.name }}</h2>
+    </a>
+{% endfor %}

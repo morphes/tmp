@@ -1,0 +1,18 @@
+main_page:
+    path: /
+    controller: App\Controller\IndexController::index
+
+country:
+    path: /country/{id}
+    controller: App\Controller\CountryController::index
+
+state:
+    path: /state/{id}
+    controller: App\Controller\StateController::index
+
+county:
+    path: /county/{id}
+    controller: App\Controller\CountyController::index
+
+
+
